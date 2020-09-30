@@ -42,7 +42,7 @@ class PageCell : UICollectionViewCell  {
     let logo : UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
-        iv.image = UIImage(named: "cowrywise_logo1")
+        iv.image = UIImage(named: Constants.cowrywiseLogo)
         return iv
     }()
     

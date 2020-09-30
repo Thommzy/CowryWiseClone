@@ -22,7 +22,6 @@ class SignUpViewController: UIViewController {
     
     lazy var signUpTitle : UILabel = {
         let label = UILabel()
-        //label.translatesAutoresizingMaskIntoConstraints =  false
         label.text = Constants.signUpTitle
         label.textColor = Constants.cowrywiseDark
         label.font = UIFont.systemFont(ofSize: 30.0, weight: UIFont.Weight.bold)
@@ -31,7 +30,6 @@ class SignUpViewController: UIViewController {
     
     lazy var signUpText : UILabel = {
         let label = UILabel()
-        //label.translatesAutoresizingMaskIntoConstraints =  false
         label.text = Constants.signUpSUbTitle
         label.textColor = Constants.cowrywiseDark
         label.font = UIFont.systemFont(ofSize: 18.0, weight: UIFont.Weight.regular)
@@ -41,14 +39,14 @@ class SignUpViewController: UIViewController {
     let stackView: UIStackView = {
             let stackView = UIStackView()
             stackView.axis = .horizontal
-            stackView.alignment = .leading // .Leading .FirstBaseline .Center .Trailing .LastBaseline
-            stackView.distribution = .fillEqually // .FillEqually .FillProportionally .EqualSpacing .EqualCentering
+            stackView.alignment = .leading
+            stackView.distribution = .fillEqually
             
             let firstNameTextField: LeftPaddedTextField = {
                 let textField = LeftPaddedTextField()
-                textField.placeholder = "Firstname"
+                textField.placeholder = Constants.firstNamePlaceholder
                 var bottomLine = CALayer()
-                bottomLine.frame = CGRect(x: 10, y: 40 - 1, width: 180, height: 1.0)
+                bottomLine.frame = CGRect(x: 10, y: 40 - 1, width: 170, height: 1.0)
                 bottomLine.backgroundColor = UIColor.lightGray.cgColor
                 textField.borderStyle = UITextField.BorderStyle.none
                 textField.layer.addSublayer(bottomLine)
@@ -57,7 +55,7 @@ class SignUpViewController: UIViewController {
             
             let lastNameTextField: UITextField = {
                 let textField = UITextField()
-                textField.placeholder = "Lastname"
+                textField.placeholder = Constants.lastNamePlaceholder
                 var bottomLine = CALayer()
                 bottomLine.frame = CGRect(x: 0, y: 40 - 1, width: 180, height: 1.0)
                 bottomLine.backgroundColor = UIColor.lightGray.cgColor
@@ -78,7 +76,7 @@ class SignUpViewController: UIViewController {
     
     let emailField: LeftPaddedTextField = {
         let textField = LeftPaddedTextField()
-        textField.placeholder = "Email"
+        textField.placeholder = Constants.emailPlaceholder
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 10, y: 40 - 1, width: 370, height: 1.0)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
@@ -89,7 +87,7 @@ class SignUpViewController: UIViewController {
     
     let passwordField: LeftPaddedTextField = {
         let textField = LeftPaddedTextField()
-        textField.placeholder = "Password"
+        textField.placeholder = Constants.passwordPlaceholder
         textField.isSecureTextEntry = true
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 10, y: 40 - 1, width: 370, height: 1.0)
@@ -101,7 +99,7 @@ class SignUpViewController: UIViewController {
     
     let phoneField: LeftPaddedTextField = {
         let textField = LeftPaddedTextField()
-        textField.placeholder = "Phone Number"
+        textField.placeholder = Constants.phoneNumberPlaceHolder
         textField.keyboardType = .numberPad
         textField.accessibilityValue = .none
         var bottomLine = CALayer()
@@ -114,7 +112,7 @@ class SignUpViewController: UIViewController {
     
     lazy var signUpContinueButton : UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("CONTINUE", for: .normal)
+        button.setTitle(Constants.continueButtonText, for: .normal)
         button.backgroundColor = Constants.cowrywiseBlue
         button.setTitleColor(Constants.cowrywiseWhite, for: .normal)
         button.layer.borderWidth = 1
@@ -126,7 +124,7 @@ class SignUpViewController: UIViewController {
     
     lazy var inviteLabel : UILabel = {
         let label = UILabel()
-        label.text = "Got an invite code?"
+        label.text = Constants.inviteLabelText
         label.textColor = Constants.cowrywiseBlue
         label.textAlignment = .center
        return label
@@ -135,11 +133,12 @@ class SignUpViewController: UIViewController {
     
     lazy var termsAndConditionLabel : UILabel = {
         var label = UILabel()
-        var prefix : UILabel
-        label.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        label.textAlignment = .center
-        label.text = "By signing up you agree to our terms and conditions"
+        let attributedString = NSMutableAttributedString.init(string: Constants.termsAndConditionText1)
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
+            NSRange.init(location: 31, length: attributedString.length - 31));
+        label.attributedText = attributedString
         label.font = UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.regular)
+        label.textColor = Constants.cowrywiseDeepGrey
        return label
     }()
     
@@ -168,10 +167,10 @@ class SignUpViewController: UIViewController {
         registerFormView.addSubview(termsAndConditionLabel)
         
         
-        constraints()
+        signUpConstraints()
     }
     
-    func constraints() {
+    func signUpConstraints() {
         
         signUpView.anchorToTop(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor)
         signUpView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
@@ -203,11 +202,10 @@ class SignUpViewController: UIViewController {
     }
     
     func navigationBar() {
-        let button1 = UIBarButtonItem(image: UIImage(named: "cancel_button"), style: .plain, target: self, action: #selector(self.goBack))
+        let button1 = UIBarButtonItem(image: UIImage(named: Constants.cancelButtonBlackImage), style: .plain, target: self, action: #selector(self.goBack))
         self.navigationItem.leftBarButtonItem  = button1
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.1457099617, green: 0.2209058106, blue: 0.3454180062, alpha: 1)
-        
         UINavigationBar.appearance().barTintColor = UIColor(red: 1/255, green: 101/255, blue: 245/255, alpha: 1)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
@@ -218,10 +216,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc private func handleUsernameSelection(){
-        let rootVc =  SelectUsernameController()
-        navigationController?.pushViewController(rootVc, animated: true)
+        let rootViewController =  SelectUsernameController()
+        navigationController?.pushViewController(rootViewController, animated: true)
     }
 }
-
-
-

@@ -11,8 +11,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     var page : Page?
     
-   
-    
     lazy var onBoardingCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -82,6 +80,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         present(navVC, animated: true)
     }
     
+    @objc private  func handleLogIn() {
+        let rootVc = LoginViewController()
+        let navVC = UINavigationController(rootViewController: rootVc)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
+    }
+    
     lazy var logInButton : UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(Constants.loginText, for: .normal)
@@ -89,6 +94,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         button.setTitleColor(Constants.cowrywiseBlue, for: .normal)
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(handleLogIn), for: .touchUpInside)
         button.layer.borderColor = #colorLiteral(red: 0.0004122248502, green: 0.4016033709, blue: 0.9599071145, alpha: 1)
        return button
     }()
@@ -97,7 +103,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         view.addSubview(onBoardingCollectionView)
         view.addSubview(pageControl)
         view.addSubview(fixedLoginAndSignupView)

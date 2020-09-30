@@ -22,7 +22,10 @@
 		04C66A352522C02A00F8EC04 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A342522C02A00F8EC04 /* CustomButton.swift */; };
 		04C66A3E2523457300F8EC04 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A3D2523457300F8EC04 /* StringConstants.swift */; };
 		04C66A472523980F00F8EC04 /* SelectUsernameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A462523980F00F8EC04 /* SelectUsernameController.swift */; };
-		04C66A4C2523DEE600F8EC04 /* ConfirmEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A4B2523DEE500F8EC04 /* ConfirmEmail.swift */; };
+		04C66A4C2523DEE600F8EC04 /* ConfirmEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A4B2523DEE500F8EC04 /* ConfirmEmailController.swift */; };
+		04C66A57252403AC00F8EC04 /* CheckEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A56252403AC00F8EC04 /* CheckEmailController.swift */; };
+		04C66A5C2524097700F8EC04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A5B2524097700F8EC04 /* LoginViewController.swift */; };
+		04C66A612524140300F8EC04 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A602524140300F8EC04 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +67,10 @@
 		04C66A342522C02A00F8EC04 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		04C66A3D2523457300F8EC04 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		04C66A462523980F00F8EC04 /* SelectUsernameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUsernameController.swift; sourceTree = "<group>"; };
-		04C66A4B2523DEE500F8EC04 /* ConfirmEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmEmail.swift; sourceTree = "<group>"; };
+		04C66A4B2523DEE500F8EC04 /* ConfirmEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmEmailController.swift; sourceTree = "<group>"; };
+		04C66A56252403AC00F8EC04 /* CheckEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailController.swift; sourceTree = "<group>"; };
+		04C66A5B2524097700F8EC04 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.applescript; };
+		04C66A602524140300F8EC04 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,21 +121,18 @@
 		04C669DC252202B000F8EC04 /* CowrywiseClone */ = {
 			isa = PBXGroup;
 			children = (
+				04C66A6525251E8000F8EC04 /* View */,
 				04C66A3C2523451200F8EC04 /* Constants */,
 				04C66A332522BFCD00F8EC04 /* Components */,
 				04C66A2A252289D300F8EC04 /* Model */,
 				04C66A102522080B00F8EC04 /* Extensions */,
 				04C669DD252202B000F8EC04 /* AppDelegate.swift */,
 				04C669DF252202B000F8EC04 /* SceneDelegate.swift */,
-				04C669E1252202B000F8EC04 /* ViewController.swift */,
+				04C66A16252215A700F8EC04 /* PageCell.swift */,
 				04C669E3252202B000F8EC04 /* Main.storyboard */,
 				04C669E6252202B300F8EC04 /* Assets.xcassets */,
 				04C669E8252202B300F8EC04 /* LaunchScreen.storyboard */,
 				04C669EB252202B300F8EC04 /* Info.plist */,
-				04C66A16252215A700F8EC04 /* PageCell.swift */,
-				04C66A2E2522914100F8EC04 /* SignUpViewController.swift */,
-				04C66A462523980F00F8EC04 /* SelectUsernameController.swift */,
-				04C66A4B2523DEE500F8EC04 /* ConfirmEmail.swift */,
 			);
 			path = CowrywiseClone;
 			sourceTree = "<group>";
@@ -182,6 +185,20 @@
 				04C66A3D2523457300F8EC04 /* StringConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		04C66A6525251E8000F8EC04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04C66A5B2524097700F8EC04 /* LoginViewController.swift */,
+				04C669E1252202B000F8EC04 /* ViewController.swift */,
+				04C66A2E2522914100F8EC04 /* SignUpViewController.swift */,
+				04C66A462523980F00F8EC04 /* SelectUsernameController.swift */,
+				04C66A4B2523DEE500F8EC04 /* ConfirmEmailController.swift */,
+				04C66A56252403AC00F8EC04 /* CheckEmailController.swift */,
+				04C66A602524140300F8EC04 /* WelcomeViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,7 +334,7 @@
 				04C669E2252202B000F8EC04 /* ViewController.swift in Sources */,
 				04C66A2F2522914100F8EC04 /* SignUpViewController.swift in Sources */,
 				04C66A3E2523457300F8EC04 /* StringConstants.swift in Sources */,
-				04C66A4C2523DEE600F8EC04 /* ConfirmEmail.swift in Sources */,
+				04C66A4C2523DEE600F8EC04 /* ConfirmEmailController.swift in Sources */,
 				04C66A472523980F00F8EC04 /* SelectUsernameController.swift in Sources */,
 				04C66A17252215A700F8EC04 /* PageCell.swift in Sources */,
 				04C669DE252202B000F8EC04 /* AppDelegate.swift in Sources */,
@@ -325,6 +342,9 @@
 				04C66A122522083000F8EC04 /* UiViewExtensions.swift in Sources */,
 				04C66A202522453100F8EC04 /* PageModel.swift in Sources */,
 				04C669E0252202B000F8EC04 /* SceneDelegate.swift in Sources */,
+				04C66A5C2524097700F8EC04 /* LoginViewController.swift in Sources */,
+				04C66A57252403AC00F8EC04 /* CheckEmailController.swift in Sources */,
+				04C66A612524140300F8EC04 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

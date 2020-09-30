@@ -22,9 +22,9 @@ class SelectUsernameController : UIViewController {
         return view
     }()
     
-        lazy var usernameTextTitle : UILabel = {
+    lazy var usernameTextTitle : UILabel = {
         let label = UILabel()
-        label.text = "Set your username"
+        label.text = Constants.usernameTitle
         label.textColor = #colorLiteral(red: 0.1457099617, green: 0.2209058106, blue: 0.3454180062, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 30.0, weight: UIFont.Weight.bold)
         return label
@@ -32,7 +32,7 @@ class SelectUsernameController : UIViewController {
     
     lazy var usernameTextsubTitle : UILabel = {
         let label = UILabel()
-        label.text = "We suggested one for you, but you can choose anything else"
+        label.text = Constants.usernameSubTitle
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
 
@@ -43,7 +43,7 @@ class SelectUsernameController : UIViewController {
     
     let usernameField: LeftPaddedTextField = {
         let textField = LeftPaddedTextField()
-        textField.placeholder = ""
+        textField.placeholder = Constants.fixedMentionPlaceholder
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 10, y: 55 - 1, width: 350, height: 0.5)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
@@ -54,7 +54,7 @@ class SelectUsernameController : UIViewController {
     
     lazy var usernameQuestion : UILabel = {
         let label = UILabel()
-        label.text = "How important is my username?"
+        label.text = Constants.usernameQuestionText
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         label.textColor = #colorLiteral(red: 0.2992200553, green: 0.6313085556, blue: 0.9966560006, alpha: 1)
@@ -66,10 +66,10 @@ class SelectUsernameController : UIViewController {
         let label = UILabel()
         let fullString = NSMutableAttributedString(string: " ")
         let image1Attachment = NSTextAttachment()
-        image1Attachment.image = UIImage(named: "checkmark_1")
+        image1Attachment.image = UIImage(named: Constants.tickedImage)
         let image1String = NSAttributedString(attachment: image1Attachment)
         fullString.append(image1String)
-        fullString.append(NSAttributedString(string: "  Free Cash transfer from anyone on cowrywise"))
+        fullString.append(NSAttributedString(string: Constants.usernameDetailOne))
         label.attributedText = fullString
         
         label.textColor = #colorLiteral(red: 0.1960784314, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
@@ -82,10 +82,10 @@ class SelectUsernameController : UIViewController {
         let label = UILabel()
         let fullString = NSMutableAttributedString(string: " ")
         let image1Attachment = NSTextAttachment()
-        image1Attachment.image = UIImage(named: "checkmark_1")
+        image1Attachment.image = UIImage(named: Constants.tickedImage)
         let image1String = NSAttributedString(attachment: image1Attachment)
         fullString.append(image1String)
-        fullString.append(NSAttributedString(string: " Personalized Username link to receive cash payments from anyone"))
+        fullString.append(NSAttributedString(string: Constants.usernameDetailTwo))
         let style = NSMutableParagraphStyle()
                 style.alignment = .left
                 style.headIndent = 60
@@ -102,13 +102,13 @@ class SelectUsernameController : UIViewController {
     
     lazy var usernameSelectContinueButton : UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("CONTINUE", for: .normal)
+        button.setTitle(Constants.continueButtonText, for: .normal)
         button.backgroundColor = cowrywiseBlue
         button.setTitleColor(cowrywiseWhite, for: .normal)
         button.layer.borderWidth = 1
         button.layer.borderColor = #colorLiteral(red: 0.0004122248502, green: 0.4016033709, blue: 0.9599071145, alpha: 1)
         button.layer.cornerRadius = 5
-        //button.addTarget(self, action: #selector(handleUsernameSelection), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleMoveToScreen), for: .touchUpInside)
        return button
     }()
     
@@ -116,6 +116,7 @@ class SelectUsernameController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar()
         view.backgroundColor = .white
         view.addSubview(topView)
         topView.addSubview(usernameTextTitle)
@@ -156,12 +157,22 @@ class SelectUsernameController : UIViewController {
         _ = usernameSelectContinueButton.anchor(nil, left: topView.leftAnchor, bottom: lowerView.bottomAnchor, right: topView.rightAnchor, topConstant: 10, leftConstant: 30, bottomConstant: 70, rightConstant: 20, widthConstant: 0, heightConstant: 50)
     }
     
-//    @objc private func goBack(sender: UIBarButtonItem) {
-//            _ = navigationController?.popViewController(animated: true)
-//    }
+    func navigationBar() {
+        let button1 = UIBarButtonItem(image: UIImage(named: Constants.backIcon), style: .plain, target: self, action: #selector(self.goBack))
+        self.navigationItem.leftBarButtonItem  = button1
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.1457099617, green: 0.2209058106, blue: 0.3454180062, alpha: 1)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 1/255, green: 101/255, blue: 245/255, alpha: 1)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    }
     
-//    @objc private func handleUsernameSelection(){
-//        let rootVc =  SelectUsernameController()
-//        navigationController?.pushViewController(rootVc, animated: true)
-//    }
+    @objc private func goBack(sender: UIBarButtonItem) {
+            _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func handleMoveToScreen(){
+        let rootVc =  ConfirmEmailController()
+        navigationController?.pushViewController(rootVc, animated: true)
+    }
 }
