@@ -106,7 +106,7 @@ class CheckEmailController: UIViewController {
     }
     
     @objc private  func handleMoveToHomeScreen() {
-        let rootVc = ViewController()
+        let rootVc = LoginViewController()
         let navVC = UINavigationController(rootViewController: rootVc)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
