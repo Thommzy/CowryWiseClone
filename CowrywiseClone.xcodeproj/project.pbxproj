@@ -19,13 +19,21 @@
 		04C66A17252215A700F8EC04 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A16252215A700F8EC04 /* PageCell.swift */; };
 		04C66A202522453100F8EC04 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A1F2522453100F8EC04 /* PageModel.swift */; };
 		04C66A2F2522914100F8EC04 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A2E2522914100F8EC04 /* SignUpViewController.swift */; };
-		04C66A352522C02A00F8EC04 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A342522C02A00F8EC04 /* CustomButton.swift */; };
 		04C66A3E2523457300F8EC04 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A3D2523457300F8EC04 /* StringConstants.swift */; };
 		04C66A472523980F00F8EC04 /* SelectUsernameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A462523980F00F8EC04 /* SelectUsernameController.swift */; };
 		04C66A4C2523DEE600F8EC04 /* ConfirmEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A4B2523DEE500F8EC04 /* ConfirmEmailController.swift */; };
 		04C66A57252403AC00F8EC04 /* CheckEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A56252403AC00F8EC04 /* CheckEmailController.swift */; };
 		04C66A5C2524097700F8EC04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A5B2524097700F8EC04 /* LoginViewController.swift */; };
 		04C66A612524140300F8EC04 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A602524140300F8EC04 /* WelcomeViewController.swift */; };
+		04E7CE1E25264E170081AEFA /* ProfileScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7CE1D25264E170081AEFA /* ProfileScreenController.swift */; };
+		04E7CE2325265A680081AEFA /* UIViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7CE2225265A680081AEFA /* UIViewLayout.swift */; };
+		04E7CE3225272F3A0081AEFA /* ProfileInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7CE3125272F3A0081AEFA /* ProfileInfoCell.swift */; };
+		04E7CE3725272F950081AEFA /* profileTableInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7CE3625272F950081AEFA /* profileTableInfoModel.swift */; };
+		04E7CE3C252738BD0081AEFA /* ProfileInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7CE3B252738BD0081AEFA /* ProfileInfoExtension.swift */; };
+		04E7CE44252749F30081AEFA /* ProfileScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7CE43252749F30081AEFA /* ProfileScreenExtension.swift */; };
+		04E7CE4925274E4D0081AEFA /* ProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7CE4825274E4D0081AEFA /* ProfileDataModel.swift */; };
+		04E7CE4F252753FE0081AEFA /* ProfileDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7CE4E252753FE0081AEFA /* ProfileDataProtocol.swift */; };
+		04E7CE552527549E0081AEFA /* UserDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7CE542527549E0081AEFA /* UserDataLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,13 +72,21 @@
 		04C66A16252215A700F8EC04 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		04C66A1F2522453100F8EC04 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		04C66A2E2522914100F8EC04 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		04C66A342522C02A00F8EC04 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		04C66A3D2523457300F8EC04 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		04C66A462523980F00F8EC04 /* SelectUsernameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUsernameController.swift; sourceTree = "<group>"; };
 		04C66A4B2523DEE500F8EC04 /* ConfirmEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmEmailController.swift; sourceTree = "<group>"; };
 		04C66A56252403AC00F8EC04 /* CheckEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailController.swift; sourceTree = "<group>"; };
 		04C66A5B2524097700F8EC04 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.applescript; };
 		04C66A602524140300F8EC04 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		04E7CE1D25264E170081AEFA /* ProfileScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenController.swift; sourceTree = "<group>"; };
+		04E7CE2225265A680081AEFA /* UIViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewLayout.swift; sourceTree = "<group>"; };
+		04E7CE3125272F3A0081AEFA /* ProfileInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCell.swift; sourceTree = "<group>"; };
+		04E7CE3625272F950081AEFA /* profileTableInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileTableInfoModel.swift; sourceTree = "<group>"; };
+		04E7CE3B252738BD0081AEFA /* ProfileInfoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoExtension.swift; sourceTree = "<group>"; };
+		04E7CE43252749F30081AEFA /* ProfileScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenExtension.swift; sourceTree = "<group>"; };
+		04E7CE4825274E4D0081AEFA /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
+		04E7CE4E252753FE0081AEFA /* ProfileDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataProtocol.swift; sourceTree = "<group>"; };
+		04E7CE542527549E0081AEFA /* UserDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,9 +137,10 @@
 		04C669DC252202B000F8EC04 /* CowrywiseClone */ = {
 			isa = PBXGroup;
 			children = (
-				04C66A6525251E8000F8EC04 /* View */,
+				04E7CE532527546F0081AEFA /* Api */,
+				04E7CE4D252753E70081AEFA /* Protocols */,
+				04C66A6525251E8000F8EC04 /* Controllers */,
 				04C66A3C2523451200F8EC04 /* Constants */,
-				04C66A332522BFCD00F8EC04 /* Components */,
 				04C66A2A252289D300F8EC04 /* Model */,
 				04C66A102522080B00F8EC04 /* Extensions */,
 				04C669DD252202B000F8EC04 /* AppDelegate.swift */,
@@ -133,6 +150,7 @@
 				04C669E6252202B300F8EC04 /* Assets.xcassets */,
 				04C669E8252202B300F8EC04 /* LaunchScreen.storyboard */,
 				04C669EB252202B300F8EC04 /* Info.plist */,
+				04E7CE3125272F3A0081AEFA /* ProfileInfoCell.swift */,
 			);
 			path = CowrywiseClone;
 			sourceTree = "<group>";
@@ -159,6 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				04C66A112522083000F8EC04 /* UiViewExtensions.swift */,
+				04E7CE2225265A680081AEFA /* UIViewLayout.swift */,
+				04E7CE3B252738BD0081AEFA /* ProfileInfoExtension.swift */,
+				04E7CE43252749F30081AEFA /* ProfileScreenExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,16 +188,10 @@
 			isa = PBXGroup;
 			children = (
 				04C66A1F2522453100F8EC04 /* PageModel.swift */,
+				04E7CE3625272F950081AEFA /* profileTableInfoModel.swift */,
+				04E7CE4825274E4D0081AEFA /* ProfileDataModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		04C66A332522BFCD00F8EC04 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				04C66A342522C02A00F8EC04 /* CustomButton.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		04C66A3C2523451200F8EC04 /* Constants */ = {
@@ -187,7 +202,7 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		04C66A6525251E8000F8EC04 /* View */ = {
+		04C66A6525251E8000F8EC04 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				04C66A5B2524097700F8EC04 /* LoginViewController.swift */,
@@ -197,8 +212,25 @@
 				04C66A4B2523DEE500F8EC04 /* ConfirmEmailController.swift */,
 				04C66A56252403AC00F8EC04 /* CheckEmailController.swift */,
 				04C66A602524140300F8EC04 /* WelcomeViewController.swift */,
+				04E7CE1D25264E170081AEFA /* ProfileScreenController.swift */,
 			);
-			path = View;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		04E7CE4D252753E70081AEFA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				04E7CE4E252753FE0081AEFA /* ProfileDataProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		04E7CE532527546F0081AEFA /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				04E7CE542527549E0081AEFA /* UserDataLoader.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,16 +363,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E7CE3725272F950081AEFA /* profileTableInfoModel.swift in Sources */,
 				04C669E2252202B000F8EC04 /* ViewController.swift in Sources */,
+				04E7CE44252749F30081AEFA /* ProfileScreenExtension.swift in Sources */,
 				04C66A2F2522914100F8EC04 /* SignUpViewController.swift in Sources */,
+				04E7CE1E25264E170081AEFA /* ProfileScreenController.swift in Sources */,
 				04C66A3E2523457300F8EC04 /* StringConstants.swift in Sources */,
+				04E7CE3225272F3A0081AEFA /* ProfileInfoCell.swift in Sources */,
+				04E7CE552527549E0081AEFA /* UserDataLoader.swift in Sources */,
+				04E7CE2325265A680081AEFA /* UIViewLayout.swift in Sources */,
+				04E7CE3C252738BD0081AEFA /* ProfileInfoExtension.swift in Sources */,
 				04C66A4C2523DEE600F8EC04 /* ConfirmEmailController.swift in Sources */,
 				04C66A472523980F00F8EC04 /* SelectUsernameController.swift in Sources */,
 				04C66A17252215A700F8EC04 /* PageCell.swift in Sources */,
 				04C669DE252202B000F8EC04 /* AppDelegate.swift in Sources */,
-				04C66A352522C02A00F8EC04 /* CustomButton.swift in Sources */,
 				04C66A122522083000F8EC04 /* UiViewExtensions.swift in Sources */,
 				04C66A202522453100F8EC04 /* PageModel.swift in Sources */,
+				04E7CE4F252753FE0081AEFA /* ProfileDataProtocol.swift in Sources */,
+				04E7CE4925274E4D0081AEFA /* ProfileDataModel.swift in Sources */,
 				04C669E0252202B000F8EC04 /* SceneDelegate.swift in Sources */,
 				04C66A5C2524097700F8EC04 /* LoginViewController.swift in Sources */,
 				04C66A57252403AC00F8EC04 /* CheckEmailController.swift in Sources */,

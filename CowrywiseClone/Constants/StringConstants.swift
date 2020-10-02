@@ -107,4 +107,24 @@ enum Constants {
     static let showPasswordText = "Show Password"
     
     static let forgotPasswordText = "Forgot Password?"
+    
+    static let ProfileNavigationTitle = "Edit Profile"
+    
+    static let ProfileSegmentedControlText = ["Personal", "Security", "Behaviour"]
+    static let avatar = "person.circle.fill"
+    
+    static let avatarInfo = "Tap to change picture"
+    
+    static let firstViewSection = ["", "Firstname", "Lastname", "Username", "Gender", "Date of Birth", "Next of Kin"]
+    
+    static let firstViewSectionInfo = ["", "chichi", "chi", "@user467776", "Male", "12/01/2009", "BadMan"]
+    
+    static let secondViewSection = ["", "", "", "", "", "", ""]
+    
+    static let threeViewSection = ["", "", "", "", "", "", ""]
+    
+    static let baseUrl = "https://5f7505151cf3c900161cdb66.mockapi.io/api/v1"
+    
+    static let loginErrorMessage = "Incorrect Email or Password"
+    
 }
