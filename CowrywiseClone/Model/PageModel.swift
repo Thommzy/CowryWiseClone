@@ -8,5 +8,5 @@
 import UIKit
 
 struct Page {
-    let image, texttitle, textBody : String
+    let image, textTitle, textBody : String
 }

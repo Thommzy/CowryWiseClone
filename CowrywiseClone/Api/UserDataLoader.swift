@@ -13,7 +13,7 @@ class UserDataLoader {
     
     func loadUserData() {
         let baseUrl : String = Constants.baseUrl
-        let id : Int = 12
+        let id : Int = 3
         let userUrl = "\(baseUrl)/profile/\(id)"
         guard let url = URL(string: userUrl) else { return }
         let session = URLSession.shared
@@ -21,7 +21,7 @@ class UserDataLoader {
             if let data = data {
                 do {
                     let jsonDecoder = JSONDecoder()
-                    let dataFromJson = try jsonDecoder.decode(user.self, from: data)
+                    let dataFromJson = try jsonDecoder.decode(User.self, from: data)
                     self.loadUserDelegate?.fetchUserData(userData: dataFromJson)
                 } catch  {
                 }

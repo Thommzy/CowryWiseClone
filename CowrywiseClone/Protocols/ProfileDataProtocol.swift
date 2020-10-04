@@ -9,5 +9,7 @@ import Foundation
 
 
 protocol profileDataProtocol {
-    func fetchUserData(userData : user)
+    func fetchUserData(userData : User)
 }
+
+

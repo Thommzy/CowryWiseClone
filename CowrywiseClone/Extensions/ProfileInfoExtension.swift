@@ -8,7 +8,7 @@
 import UIKit
 
 extension ProfileScreenController : profileDataProtocol {
-    func fetchUserData(userData: user) {
+    func fetchUserData(userData: User) {
         if let encoded = try? JSONEncoder().encode(userData) {
             UserDefaults.standard.set(encoded, forKey: "profileData")
         }

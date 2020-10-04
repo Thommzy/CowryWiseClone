@@ -10,9 +10,9 @@ import UIKit
 
 class ProfileScreenController: UIViewController, UITableViewDelegate  {
     
-    var data : user?
+    var data : User?
     
-    let cellId = "cellId"
+    let cellId = Constants.cellId
     var tableViewData : [TableViewData] = [TableViewData]()
     
     
@@ -21,8 +21,8 @@ class ProfileScreenController: UIViewController, UITableViewDelegate  {
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(handleSegmentChange), for: .valueChanged)
         let attributes : [NSAttributedString.Key: Any] = [
-                            .foregroundColor: UIColor.systemBlue
-                        ]
+            .foregroundColor: UIColor.systemBlue
+        ]
         segmentedControl.setTitleTextAttributes(attributes, for: .selected)
         return segmentedControl
     }()
@@ -40,8 +40,6 @@ class ProfileScreenController: UIViewController, UITableViewDelegate  {
         profileTableView.reloadData()
     }
     
-    
-    
     let profilePictureView : UIView = {
         let view = UIView()
         view.backgroundColor = Constants.cowrywiseWhite
@@ -56,31 +54,22 @@ class ProfileScreenController: UIViewController, UITableViewDelegate  {
     }()
     
     let profilePictureInfo : UILabel = {
-          let label = UILabel()
-          label.text = Constants.avatarInfo
-          label.font = UIFont.systemFont(ofSize: 12.0, weight: UIFont.Weight.bold)
-          label.textColor = #colorLiteral(red: 0.3980448246, green: 0.4535154104, blue: 0.5366771221, alpha: 1)
-          label.textAlignment = .center
-          return label
-      }()
-    
+        let label = UILabel()
+        label.text = Constants.avatarInfo
+        label.font = UIFont.systemFont(ofSize: 12.0, weight: UIFont.Weight.bold)
+        label.textColor = #colorLiteral(red: 0.3980448246, green: 0.4535154104, blue: 0.5366771221, alpha: 1)
+        label.textAlignment = .center
+        return label
+    }()
     
     let profileTableView = UITableView(frame: .zero , style: .plain)
-
-    
     var first = Constants.firstViewSection
     
-    
-    
-    
     let second = Constants.secondViewSection
-
+    
     let third = Constants.threeViewSection
     
     lazy var rowsToDisplay = first
-    
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,7 +122,7 @@ class ProfileScreenController: UIViewController, UITableViewDelegate  {
     func loadUserDefaultData() {
         DispatchQueue.main.async {
             if let data = UserDefaults.standard.data(forKey: "profileData"),
-               let defaultData = try? JSONDecoder().decode(user.self, from: data){
+               let defaultData = try? JSONDecoder().decode(User.self, from: data){
                 self.data = defaultData
                 self.profileTableView.reloadData()
             }
@@ -142,37 +131,37 @@ class ProfileScreenController: UIViewController, UITableViewDelegate  {
     
     func loadCurrentData() {
         let queue = DispatchQueue(label: "")
-           queue.async {
+        queue.async {
             DispatchQueue.main.async {
-               if let data =  self.data {
-                self.tableViewData.append(TableViewData(leftAlignedText: "", rightAlignedText: ""))
-                self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[1], rightAlignedText: data.firstName))
-                self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[2], rightAlignedText: data.lastName))
-                self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[3], rightAlignedText: data.username))
-                self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[4], rightAlignedText: String(data.gender)))
-                self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[5], rightAlignedText: String(data.dateOfBirth.prefix(10))))
-                self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[6], rightAlignedText: data.nextOfKin))
-                self.profileTableView.reloadData()
-               }
+                if let data =  self.data {
+                    self.tableViewData.append(TableViewData(leftAlignedText: "", rightAlignedText: ""))
+                    self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[1], rightAlignedText: data.firstName))
+                    self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[2], rightAlignedText: data.lastName))
+                    self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[3], rightAlignedText: data.username))
+                    self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[4], rightAlignedText: String(data.gender)))
+                    self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[5], rightAlignedText: String(data.dateOfBirth.prefix(10))))
+                    self.tableViewData.append(TableViewData(leftAlignedText: Constants.firstViewSection[6], rightAlignedText: data.nextOfKin))
+                    self.profileTableView.reloadData()
+                }
             }
         }
     }
     
     func backButton(){
-            let leftIcon = UIBarButtonItem(title: "＜Back", style: .plain, target: self, action: #selector(backToHomePage))
-            navigationItem.leftBarButtonItem = leftIcon
-            leftIcon.tintColor = .black
-            leftIcon.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "helvetica", size: 17.0)!], for: UIControl.State.normal)
-            leftIcon.setTitlePositionAdjustment(UIOffset(horizontal: 0.0, vertical: 5.0), for: UIBarMetrics.default)
-            UINavigationBar.appearance().barTintColor = UIColor(red: 1/255, green: 101/255, blue: 245/255, alpha: 1)
-            UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        }
-        @objc private func backToHomePage(sender: UIBarButtonItem) {
-           
-            self.dismiss(animated: true, completion: nil)
-        }
-
-   
+        let leftIcon = UIBarButtonItem(title: "＜Back", style: .plain, target: self, action: #selector(backToHomePage))
+        navigationItem.leftBarButtonItem = leftIcon
+        leftIcon.tintColor = .black
+        leftIcon.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "helvetica", size: 17.0)!], for: UIControl.State.normal)
+        leftIcon.setTitlePositionAdjustment(UIOffset(horizontal: 0.0, vertical: 5.0), for: UIBarMetrics.default)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 1/255, green: 101/255, blue: 245/255, alpha: 1)
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    }
+    @objc private func backToHomePage(sender: UIBarButtonItem) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
 

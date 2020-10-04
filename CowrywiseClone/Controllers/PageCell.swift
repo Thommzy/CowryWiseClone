@@ -19,9 +19,9 @@ class PageCell : UICollectionViewCell  {
             
             let color = UIColor(white: 0.2, alpha: 1)
             
-            let attributedText = NSMutableAttributedString(string: page.texttitle, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium), NSAttributedString.Key.foregroundColor : color])
+            let attributedText = NSMutableAttributedString(string: page.textTitle, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.bold), NSAttributedString.Key.foregroundColor : color])
              
-            attributedText.append(NSAttributedString(string: "\n\n\(page.textBody)", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor : color]))
+            attributedText.append(NSAttributedString(string: "\n\n\(page.textBody)", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor : color]))
             
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .center

@@ -8,6 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        view.addSubview(onBoardingCollectionView)
+        view.addSubview(pageControl)
+        view.addSubview(fixedLoginAndSignupView)
+        fixedLoginAndSignupView.addSubview(signUpButton)
+        fixedLoginAndSignupView.addSubview(logInButton)
+        screenConstraints()
+        onBoardingCollectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
+    }
     
     var page : Page?
     
@@ -29,26 +40,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return view
     }()
     
-    
-    let cellId = "cellId"
-    
+    let cellId = Constants.cellId
     
     let pages : [Page] = {
         var pageArray : [Page] = []
-        
-        let firstPage = Page(image: Constants.imageName1, texttitle: Constants.title1, textBody: Constants.message1)
-        
-        let secondPage = Page(image: Constants.imageName2, texttitle: Constants.title2, textBody: Constants.message2)
-        
-        let thirdPage = Page(image: Constants.imageName3, texttitle: Constants.title3, textBody: Constants.message3)
-        
-        let fourthPage = Page(image: Constants.imageName4, texttitle: Constants.title4, textBody: Constants.message4)
-        
+        let firstPage = Page(image: Constants.imageName1, textTitle: Constants.title1, textBody: Constants.message1)
+        let secondPage = Page(image: Constants.imageName2, textTitle: Constants.title2, textBody: Constants.message2)
+        let thirdPage = Page(image: Constants.imageName3, textTitle: Constants.title3, textBody: Constants.message3)
+        let fourthPage = Page(image: Constants.imageName4, textTitle: Constants.title4, textBody: Constants.message4)
         pageArray.append(firstPage)
         pageArray.append(secondPage)
         pageArray.append(thirdPage)
         pageArray.append(fourthPage)
-        
         return pageArray
     }()
     
@@ -70,7 +73,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         button.layer.borderColor = #colorLiteral(red: 0.0004122248502, green: 0.4016033709, blue: 0.9599071145, alpha: 1)
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
-       return button
+        return button
     }()
     
     @objc private  func handleSignUp() {
@@ -81,7 +84,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     @objc private  func handleLogIn() {
-        let rootVc = LoginViewController()
+        let rootVc = LoginScreenController()
         let navVC = UINavigationController(rootViewController: rootVc)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
@@ -96,33 +99,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(handleLogIn), for: .touchUpInside)
         button.layer.borderColor = #colorLiteral(red: 0.0004122248502, green: 0.4016033709, blue: 0.9599071145, alpha: 1)
-       return button
+        return button
     }()
     
     var pageControlBottomAnchor : NSLayoutConstraint?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubview(onBoardingCollectionView)
-        view.addSubview(pageControl)
-        view.addSubview(fixedLoginAndSignupView)
-        
-        fixedLoginAndSignupView.addSubview(signUpButton)
-        fixedLoginAndSignupView.addSubview(logInButton)
-        
-        screenConstraints()
-        onBoardingCollectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
-    }
+    
     
     func screenConstraints() {
         _ = signUpButton.anchor(nil, left: fixedLoginAndSignupView.leftAnchor, bottom: nil, right: fixedLoginAndSignupView.rightAnchor, topConstant: 16, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 50)
-                
+        
         _ = logInButton.anchor(signUpButton.bottomAnchor, left: fixedLoginAndSignupView.leftAnchor, bottom: nil, right: fixedLoginAndSignupView.rightAnchor, topConstant: 12, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 50)
         
-        
         pageControlBottomAnchor = pageControl.anchor(nil, left: onBoardingCollectionView.leftAnchor, bottom: onBoardingCollectionView.safeAreaLayoutGuide.bottomAnchor, right: onBoardingCollectionView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 40)[1]
-        
         
         onBoardingCollectionView.anchorToTop(top: view.topAnchor, left: view.leftAnchor, bottom: fixedLoginAndSignupView.topAnchor, right: view.rightAnchor)
         onBoardingCollectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8).isActive = true
@@ -138,7 +126,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         pageControl.currentPage = pageNumber
     }
     
-   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pages.count
     }
@@ -146,13 +134,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PageCell
-       
         let page = pages[indexPath.item]
         cell.page = page
-        
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)

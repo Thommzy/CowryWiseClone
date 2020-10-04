@@ -90,7 +90,7 @@ enum Constants {
     
     static let usernameQuestionText = "How important is my username?"
     
-    static let tickedImage = "checkmark_1"
+    static let tickedImage = "✓ "
     
     static let usernameDetailOne = "  Free Cash transfer from anyone on cowrywise"
     
@@ -102,9 +102,12 @@ enum Constants {
     
     static let createAccountButtonText = "YES, CREATE MY ACCOUNT"
     
-    static let passwordAndShowPlaceholder = "Password \t\t\t\t\t\t\t\t\t" + " " + "Show"
+    static let passwordAndShowPlaceholder = "Password"
     
     static let showPasswordText = "Show Password"
+    
+    
+    static let hidePasswordText = "Hide Password"
     
     static let forgotPasswordText = "Forgot Password?"
     
@@ -126,5 +129,12 @@ enum Constants {
     static let baseUrl = "https://5f7505151cf3c900161cdb66.mockapi.io/api/v1"
     
     static let loginErrorMessage = "Incorrect Email or Password"
+
+    static let IncompleteErrorMessage = "Incorrect Credentials"
+
+    static let cellId = "cellId"
     
+    static let networkErrorMessage = "NetworkError"
+    
+    static let usernameInputPlaceholder = "                                               "
 }

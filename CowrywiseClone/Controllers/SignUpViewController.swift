@@ -8,7 +8,25 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-   
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        navigationBar()
+        view.addSubview(signUpView)
+        signUpView.addSubview(signUpTitle)
+        signUpView.addSubview(signUpText)
+        view.addSubview(registerFormView)
+        registerFormView.addSubview(stackView)
+        registerFormView.addSubview(emailField)
+        registerFormView.addSubview(passwordField)
+        registerFormView.addSubview(phoneField)
+        registerFormView.addSubview(signUpContinueButton)
+        registerFormView.addSubview(inviteLabel)
+        registerFormView.addSubview(termsAndConditionLabel)
+        signUpConstraints()
+        passwordField.enablePasswordToggle()
+    }
     
     lazy var signUpView : UIView = {
         let view = UIView()
@@ -37,42 +55,42 @@ class SignUpViewController: UIViewController {
     }()
     
     let stackView: UIStackView = {
-            let stackView = UIStackView()
-            stackView.axis = .horizontal
-            stackView.alignment = .leading
-            stackView.distribution = .fillEqually
-            
-            let firstNameTextField: LeftPaddedTextField = {
-                let textField = LeftPaddedTextField()
-                textField.placeholder = Constants.firstNamePlaceholder
-                var bottomLine = CALayer()
-                bottomLine.frame = CGRect(x: 10, y: 40 - 1, width: 170, height: 1.0)
-                bottomLine.backgroundColor = UIColor.lightGray.cgColor
-                textField.borderStyle = UITextField.BorderStyle.none
-                textField.layer.addSublayer(bottomLine)
-                return textField
-            }()
-            
-            let lastNameTextField: UITextField = {
-                let textField = UITextField()
-                textField.placeholder = Constants.lastNamePlaceholder
-                var bottomLine = CALayer()
-                bottomLine.frame = CGRect(x: 0, y: 40 - 1, width: 180, height: 1.0)
-                bottomLine.backgroundColor = UIColor.lightGray.cgColor
-                textField.borderStyle = UITextField.BorderStyle.none
-                textField.layer.addSublayer(bottomLine)
-                return textField
-            }()
-            
-            stackView.addArrangedSubview(firstNameTextField)
-            stackView.addArrangedSubview(lastNameTextField)
-            
-            _ = firstNameTextField.anchor(nil, left: stackView.rightAnchor, bottom: nil, right: lastNameTextField.leftAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 5, widthConstant: 0, heightConstant: 50)
-                
-             _ = lastNameTextField.anchor(nil, left: firstNameTextField.rightAnchor, bottom: nil, right: stackView.rightAnchor, topConstant: 0, leftConstant: 5, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 50)
-            
-            return stackView
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .leading
+        stackView.distribution = .fillEqually
+        
+        let firstNameTextField: LeftPaddedTextField = {
+            let textField = LeftPaddedTextField()
+            textField.placeholder = Constants.firstNamePlaceholder
+            var bottomLine = CALayer()
+            bottomLine.frame = CGRect(x: 10, y: 40 - 1, width: 170, height: 1.0)
+            bottomLine.backgroundColor = UIColor.lightGray.cgColor
+            textField.borderStyle = UITextField.BorderStyle.none
+            textField.layer.addSublayer(bottomLine)
+            return textField
         }()
+        
+        let lastNameTextField: UITextField = {
+            let textField = UITextField()
+            textField.placeholder = Constants.lastNamePlaceholder
+            var bottomLine = CALayer()
+            bottomLine.frame = CGRect(x: 0, y: 40 - 1, width: 180, height: 1.0)
+            bottomLine.backgroundColor = UIColor.lightGray.cgColor
+            textField.borderStyle = UITextField.BorderStyle.none
+            textField.layer.addSublayer(bottomLine)
+            return textField
+        }()
+        
+        stackView.addArrangedSubview(firstNameTextField)
+        stackView.addArrangedSubview(lastNameTextField)
+        
+        _ = firstNameTextField.anchor(nil, left: stackView.rightAnchor, bottom: nil, right: lastNameTextField.leftAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 5, widthConstant: 0, heightConstant: 50)
+        
+        _ = lastNameTextField.anchor(nil, left: firstNameTextField.rightAnchor, bottom: nil, right: stackView.rightAnchor, topConstant: 0, leftConstant: 5, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 50)
+        
+        return stackView
+    }()
     
     let emailField: LeftPaddedTextField = {
         let textField = LeftPaddedTextField()
@@ -119,7 +137,7 @@ class SignUpViewController: UIViewController {
         button.layer.borderColor = #colorLiteral(red: 0.0004122248502, green: 0.4016033709, blue: 0.9599071145, alpha: 1)
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(handleUsernameSelection), for: .touchUpInside)
-       return button
+        return button
     }()
     
     lazy var inviteLabel : UILabel = {
@@ -127,7 +145,7 @@ class SignUpViewController: UIViewController {
         label.text = Constants.inviteLabelText
         label.textColor = Constants.cowrywiseBlue
         label.textAlignment = .center
-       return label
+        return label
     }()
     
     
@@ -135,52 +153,21 @@ class SignUpViewController: UIViewController {
         var label = UILabel()
         let attributedString = NSMutableAttributedString.init(string: Constants.termsAndConditionText1)
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
-            NSRange.init(location: 31, length: attributedString.length - 31));
+                                        NSRange.init(location: 31, length: attributedString.length - 31));
         label.attributedText = attributedString
         label.font = UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.regular)
         label.textColor = Constants.cowrywiseDeepGrey
-       return label
+        return label
     }()
     
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        navigationBar()
-        
-        view.addSubview(signUpView)
-        
-        signUpView.addSubview(signUpTitle)
-        signUpView.addSubview(signUpText)
-        
-        view.addSubview(registerFormView)
-        
-        registerFormView.addSubview(stackView)
-        registerFormView.addSubview(emailField)
-        registerFormView.addSubview(passwordField)
-        registerFormView.addSubview(phoneField)
-        registerFormView.addSubview(signUpContinueButton)
-        registerFormView.addSubview(inviteLabel)
-        registerFormView.addSubview(termsAndConditionLabel)
-        
-        
-        signUpConstraints()
-    }
-    
     func signUpConstraints() {
-        
         signUpView.anchorToTop(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor)
         signUpView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         
         registerFormView.anchorToTop(top: signUpView.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         registerFormView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75).isActive = true
         
-        
         _ = signUpTitle.anchor(signUpView.topAnchor, left: signUpView.leftAnchor, bottom: nil, right: signUpView.rightAnchor, topConstant: 140, leftConstant: 20, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 30)
-        
         
         _ = signUpText.anchor(signUpTitle.bottomAnchor, left: signUpView.leftAnchor, bottom: nil, right: signUpView.rightAnchor, topConstant: 10, leftConstant: 20, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 20)
         
@@ -190,9 +177,7 @@ class SignUpViewController: UIViewController {
         
         _ = passwordField.anchor(emailField.bottomAnchor, left: registerFormView.leftAnchor, bottom: nil, right: registerFormView.rightAnchor, topConstant: 60, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 20)
         
-        
         _ = phoneField.anchor(passwordField.bottomAnchor, left: registerFormView.leftAnchor, bottom: nil, right: registerFormView.rightAnchor, topConstant: 60, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 20)
-        
         
         _ = signUpContinueButton.anchor(phoneField.bottomAnchor, left: registerFormView.leftAnchor, bottom: nil, right: registerFormView.rightAnchor, topConstant: 100, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 50)
         
@@ -216,7 +201,11 @@ class SignUpViewController: UIViewController {
     }
     
     @objc private func handleUsernameSelection(){
-        let rootViewController =  SelectUsernameController()
-        navigationController?.pushViewController(rootViewController, animated: true)
+        if emailField.text == "" || emailField.text == "" || phoneField.text == ""{
+            incompleteUserDetails()
+        } else {
+            let rootViewController =  SelectUsernameController()
+            navigationController?.pushViewController(rootViewController, animated: true)
+        }
     }
 }
